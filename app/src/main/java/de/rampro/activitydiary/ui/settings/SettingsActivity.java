@@ -55,6 +55,7 @@ import de.rampro.activitydiary.db.ActivityDiaryContract;
 import de.rampro.activitydiary.db.LocalDBHelper;
 import de.rampro.activitydiary.helpers.ActivityHelper;
 import de.rampro.activitydiary.ui.generic.BaseActivity;
+import kotlin.jvm.Throws;
 
 public class SettingsActivity extends BaseActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
     private static final String TAG = SettingsActivity.class.getName();
@@ -175,6 +176,7 @@ public class SettingsActivity extends BaseActivity implements SharedPreferences.
             locationAgePref.setEnabled(true);
             locationDistPref.setEnabled(true);
             useLocationPref.setSummary(getResources().getString(R.string.setting_use_location_summary, useLocationPref.getEntry()));
+            Log.i("Themis", "updateUseLocation: step 3: 切换location service to Network or GPS");
         }
 
         if(value.equals("gps")) {
@@ -235,7 +237,16 @@ public class SettingsActivity extends BaseActivity implements SharedPreferences.
         String value = PreferenceManager
                 .getDefaultSharedPreferences(ActivityDiaryApplication.getAppContext())
                 .getString(KEY_PREF_LOCATION_AGE, def);
-        int v = Integer.parseInt(value.replaceAll("\\D",""));
+        int v;
+        try {
+            v = Integer.parseInt(value.replaceAll("\\D",""));
+        }
+        catch (NumberFormatException e){
+            Log.i("Themis", "updateLocationAge: step 4 : KEY_PREF_LOCATION_AGE 不是数字");
+//            return;
+            throw e;
+        }
+
         if(v < 2){
             v = 2;
         }else if(v > 60){
