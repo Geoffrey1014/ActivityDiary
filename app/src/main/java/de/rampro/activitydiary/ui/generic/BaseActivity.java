@@ -26,6 +26,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -117,6 +118,7 @@ public class BaseActivity extends AppCompatActivity {
                     case R.id.nav_settings:
                         Intent intentsettings = new Intent(BaseActivity.this, SettingsActivity.class);
                         startActivity(intentsettings);
+                        Log.i("Themis", "onNavigationItemSelected: step 2 : 点击setting ");
                         break;
                     default:
                         Toast.makeText(BaseActivity.this, menuItem.getTitle() + " is not yet implemented :-(", Toast.LENGTH_LONG).show();
@@ -146,6 +148,7 @@ public class BaseActivity extends AppCompatActivity {
         // Pass the event to ActionBarDrawerToggle, if it returns
         // true, then it has handled the app icon touch event
         if (mDrawerToggle.onOptionsItemSelected(item)) {
+            System.out.println("LWY");
             return true;
         }else if(item.getItemId() == android.R.id.home){
             finish();

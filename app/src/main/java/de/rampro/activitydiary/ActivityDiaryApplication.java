@@ -56,6 +56,7 @@ public class ActivityDiaryApplication extends Application {
 
     public void onCreate() {
         super.onCreate();
+
         ActivityDiaryApplication.context = getApplicationContext();
 
         /* now do some init stuff */

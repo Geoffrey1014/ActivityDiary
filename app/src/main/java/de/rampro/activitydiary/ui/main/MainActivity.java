@@ -556,7 +556,9 @@ public class MainActivity extends BaseActivity implements
             case R.id.action_filter:
             */
         }
-        return super.onOptionsItemSelected(item);
+        boolean res = super.onOptionsItemSelected(item);
+        Log.i("Themis", "onOptionsItemSelected: step 1: 打开或关闭侧边抽屉");
+        return res;
     }
 
     protected void onNewIntent(Intent intent) {
