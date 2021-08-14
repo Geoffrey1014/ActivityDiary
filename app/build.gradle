@@ -7,26 +7,26 @@ if (project.file('../ActivityDiarySigning.properties').exists()) {
     props.load(new FileInputStream(file('../ActivityDiarySigning.properties')))
 
     android {
-        signingConfigs {
-            gplayRelease {
-                storeFile file("${System.properties['user.home']}${File.separator}/.android_keystore")
-                storePassword props['keystore.password']
-                keyAlias 'key0'
-                keyPassword  props['key.password']
-            }
-            release {
-                storeFile file("${System.properties['user.home']}${File.separator}/.android_keystore_default")
-                storePassword props['keystore_default.password']
-                keyAlias 'defaultRelease'
-                keyPassword  props['key_default.password']
-            }
-        }
+//        signingConfigs {
+//            gplayRelease {
+//                storeFile file("${System.properties['user.home']}${File.separator}/.android_keystore")
+//                storePassword props['keystore.password']
+//                keyAlias 'key0'
+//                keyPassword  props['key.password']
+//            }
+//            release {
+//                storeFile file("${System.properties['user.home']}${File.separator}/.android_keystore_default")
+//                storePassword props['keystore_default.password']
+//                keyAlias 'defaultRelease'
+//                keyPassword  props['key_default.password']
+//            }
+//        }
         playAccountConfigs {
             defaultAccountConfig {
                 serviceAccountEmail = 'gplay-ramack@api-5226730847504381805-103625.iam.gserviceaccount.com'
                 pk12File = file('../gplay-developer-9607db552238.p12')
             }
-        }        
+        }
     }
     play {
         uploadImages = true
@@ -50,6 +50,20 @@ android {
             playAccountConfig = playAccountConfigs.defaultAccountConfig
         }
     }
+    signingConfigs {
+        gplayRelease {
+            storeFile file("${System.properties['user.home']}${File.separator}/.android_keystore")
+            storePassword 'keystore.password'
+            keyAlias 'key0'
+            keyPassword 'key.password'
+        }
+        release {
+            storeFile file("${System.properties['user.home']}${File.separator}/.android_keystore_default")
+            storePassword 'keystore_default.password'
+            keyAlias 'defaultRelease'
+            keyPassword  'key_default.password'
+        }
+    }
     buildTypes {
         debug {
             applicationIdSuffix ".debug"
@@ -70,6 +84,9 @@ android {
             }
         }
     }
+
+
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

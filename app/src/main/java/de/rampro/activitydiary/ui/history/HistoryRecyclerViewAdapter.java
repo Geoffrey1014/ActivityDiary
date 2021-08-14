@@ -29,6 +29,7 @@ import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,12 +70,14 @@ public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryView
     public boolean onDetailItemLongClick(final int adapterPosition) {
         //TODO: generalize the DetailView to include this code also
         //      such that it is not duplicated between MainActivity and HistoryRecyclerViewAdapter
+        Log.i("Themis", "onDetailItemLongClick: step 6: long click 某个item");
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext)
                 .setTitle(R.string.dlg_delete_image_title)
                 .setMessage(R.string.dlg_delete_image_text)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
+                        Log.i("Themis", "onDetailItemLongClick: step 7:  确定删除");
                         ContentValues values = new ContentValues();
                         values.put(ActivityDiaryContract.DiaryImage._DELETED, 1);
 
