@@ -93,7 +93,7 @@ public class BaseActivity extends AppCompatActivity {
                         startActivity(intentmanage);
                         break;
                     case R.id.nav_diary:
-                        Log.i("Themis", "onNavigationItemSelected: step 5: 点击Dairy");
+                        Log.i("Themis", "BaseActivity onNavigationItemSelected: step 5: click the Dairy in the Drawer");
                         Intent intentdiary = new Intent(BaseActivity.this, HistoryActivity.class);
                         startActivity(intentdiary);
                         break;
