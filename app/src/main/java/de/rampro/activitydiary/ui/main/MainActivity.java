@@ -198,7 +198,7 @@ public class MainActivity extends BaseActivity implements
             @Override
             public void onClick(View v) {
                 // Handle the click on the FAB
-                Log.i("Themis", "fabAttachPicture onClick: step 2: 点击拍照按钮 ");
+                Log.i("Themis", "MainActivity fabAttachPicture.onClick: step 2: click the fabAttachPicture ");
                 if(mCurrentActivity != null) {
                     Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
@@ -417,7 +417,7 @@ public class MainActivity extends BaseActivity implements
 
     @Override
     public void onItemClick(int adapterPosition) {
-        Log.i("Themis", "onItemClick: step 1: 这里不准确，不能区分点击的是哪个 ");
+        Log.i("Themis", "MainActivity onItemClick: step 1: click an item in MainActivity");
         DiaryActivity newAct = selectAdapter.item(adapterPosition);
         ActivityHelper.helper.setCurrentActivity(newAct);
 
@@ -582,7 +582,7 @@ public class MainActivity extends BaseActivity implements
             case R.id.action_filter:
             */
         }
-        Log.i("Themis", "onOptionsItemSelected: step 4: 打开侧边抽屉 ");
+        Log.i("Themis", "MainActivity onOptionsItemSelected: step 4: open the drawer ");
 
         return super.onOptionsItemSelected(item);
     }
@@ -659,7 +659,7 @@ public class MainActivity extends BaseActivity implements
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Log.i("Themis", "onActivityResult: step 3 : 获得拍照得到的picture");
+            Log.i("Themis", "MainActivity onActivityResult: step 3 : get a picture");
             if(mCurrentPhotoPath != null && mCurrentDiaryUri != null) {
                 Uri photoURI = FileProvider.getUriForFile(MainActivity.this,
                         BuildConfig.APPLICATION_ID + ".fileprovider",
