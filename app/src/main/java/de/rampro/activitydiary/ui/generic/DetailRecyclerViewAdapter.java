@@ -153,7 +153,7 @@ public class DetailRecyclerViewAdapter extends RecyclerView.Adapter<DetailViewHo
             throw new IllegalArgumentException("position (" + Integer.toString(position) + ") too small");
         }
         if(position >= mCursor.getCount()){
-            Log.i("Themis", "DetailRecyclerViewAdapter getDiaryImageIdAt: BOMB! Crash! : IllegalArgumentException");
+            Log.i("Themis", "Crash! : IllegalArgumentException");
             throw new IllegalArgumentException("position (" + Integer.toString(position) + ") too small");
         }
         int pos = mCursor.getPosition();
