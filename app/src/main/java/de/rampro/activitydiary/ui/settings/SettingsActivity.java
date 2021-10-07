@@ -176,7 +176,7 @@ public class SettingsActivity extends BaseActivity implements SharedPreferences.
             locationAgePref.setEnabled(true);
             locationDistPref.setEnabled(true);
             useLocationPref.setSummary(getResources().getString(R.string.setting_use_location_summary, useLocationPref.getEntry()));
-            Log.i("Themis", "updateUseLocation: step 3: 切换location service to Network or GPS");
+            Log.i("Themis", "Event 3: change \"Location Service\" to Network or GPS");
         }
 
         if(value.equals("gps")) {
@@ -237,12 +237,13 @@ public class SettingsActivity extends BaseActivity implements SharedPreferences.
         String value = PreferenceManager
                 .getDefaultSharedPreferences(ActivityDiaryApplication.getAppContext())
                 .getString(KEY_PREF_LOCATION_AGE, def);
+        Log.i("Themis", "Event 4 :change \"Update period\" to: " + value);
         int v;
         try {
             v = Integer.parseInt(value.replaceAll("\\D",""));
         }
         catch (NumberFormatException e){
-            Log.i("Themis", "updateLocationAge: step 4 : KEY_PREF_LOCATION_AGE 不是数字");
+            Log.i("Themis", "Crash!: NumberFormatException");
 //            return;
             throw e;
         }

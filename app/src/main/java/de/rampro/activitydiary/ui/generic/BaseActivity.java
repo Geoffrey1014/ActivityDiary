@@ -118,7 +118,7 @@ public class BaseActivity extends AppCompatActivity {
                     case R.id.nav_settings:
                         Intent intentsettings = new Intent(BaseActivity.this, SettingsActivity.class);
                         startActivity(intentsettings);
-                        Log.i("Themis", "onNavigationItemSelected: step 2 : 点击setting ");
+                        Log.i("Themis", "Event 2 : click \"Settings\" in the drawer ");
                         break;
                     default:
                         Toast.makeText(BaseActivity.this, menuItem.getTitle() + " is not yet implemented :-(", Toast.LENGTH_LONG).show();
