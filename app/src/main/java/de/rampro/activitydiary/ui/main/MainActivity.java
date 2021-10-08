@@ -94,6 +94,7 @@ import de.rampro.activitydiary.ui.settings.SettingsActivity;
  * MainActivity to show most of the UI, based on switching the fragements
  *
  * */
+
 public class MainActivity extends BaseActivity implements
         SelectRecyclerViewAdapter.SelectListener,
         ActivityHelper.DataChangedListener,
