@@ -70,7 +70,7 @@ public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryView
     public boolean onDetailItemLongClick(final int adapterPosition) {
         //TODO: generalize the DetailView to include this code also
         //      such that it is not duplicated between MainActivity and HistoryRecyclerViewAdapter
-        Log.i("Themis", "Event 6: long click an image in an activity entry: ");
+        Log.i("Themis", "Event 6: long click an image in an activity entry.");
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext)
                 .setTitle(R.string.dlg_delete_image_title)
                 .setMessage(R.string.dlg_delete_image_text)
