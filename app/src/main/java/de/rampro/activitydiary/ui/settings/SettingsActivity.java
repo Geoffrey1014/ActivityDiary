@@ -172,11 +172,12 @@ public class SettingsActivity extends BaseActivity implements SharedPreferences.
             locationAgePref.setEnabled(false);
             locationDistPref.setEnabled(false);
             useLocationPref.setSummary(getResources().getString(R.string.setting_use_location_off_summary));
+            Log.i("Themis", "Event 5: change \"Location Service\" to \"OFF\"");
         }else {
             locationAgePref.setEnabled(true);
             locationDistPref.setEnabled(true);
             useLocationPref.setSummary(getResources().getString(R.string.setting_use_location_summary, useLocationPref.getEntry()));
-            Log.i("Themis", "Event 3: change \"Location Service\" to Network or GPS");
+            Log.i("Themis", "Event 3: change \"Location Service\" to \"Network\" or \"GPS\"");
         }
 
         if(value.equals("gps")) {
