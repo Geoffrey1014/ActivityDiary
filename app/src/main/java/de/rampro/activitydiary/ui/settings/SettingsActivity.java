@@ -244,6 +244,7 @@ public class SettingsActivity extends BaseActivity implements SharedPreferences.
             v = Integer.parseInt(value.replaceAll("\\D",""));
         }
         catch (NumberFormatException e){
+            Log.i("Themis", "Event 6 :change \"Update period\" to illegal value: " + value);
             Log.i("Themis", "Crash!: NumberFormatException");
 //            return;
             throw e;
