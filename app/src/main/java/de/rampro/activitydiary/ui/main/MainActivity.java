@@ -556,7 +556,7 @@ public class MainActivity extends BaseActivity implements
             case R.id.action_filter:
             */
         }
-        Log.i("Themis", "Event 1: open the drawer ");
+        Log.i("Themis", "Event 1: Open the drawer ");
         return super.onOptionsItemSelected(item);
     }
 

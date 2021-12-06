@@ -172,12 +172,12 @@ public class SettingsActivity extends BaseActivity implements SharedPreferences.
             locationAgePref.setEnabled(false);
             locationDistPref.setEnabled(false);
             useLocationPref.setSummary(getResources().getString(R.string.setting_use_location_off_summary));
-            Log.i("Themis", "Event 5: change \"Location Service\" to \"OFF\"");
+            Log.i("Themis", "Event 5: Changed \"Location Service\" to \"OFF\"");
         }else {
             locationAgePref.setEnabled(true);
             locationDistPref.setEnabled(true);
             useLocationPref.setSummary(getResources().getString(R.string.setting_use_location_summary, useLocationPref.getEntry()));
-            Log.i("Themis", "Event 3: change \"Location Service\" to \"Network\" or \"GPS\"");
+            Log.i("Themis", "Event 3: Changed \"Location Service\" to \"Network\" or \"GPS\"");
         }
 
         if(value.equals("gps")) {
@@ -238,13 +238,13 @@ public class SettingsActivity extends BaseActivity implements SharedPreferences.
         String value = PreferenceManager
                 .getDefaultSharedPreferences(ActivityDiaryApplication.getAppContext())
                 .getString(KEY_PREF_LOCATION_AGE, def);
-        Log.i("Themis", "Event 4 :change \"Update period\" to: " + value);
+        Log.i("Themis", "Event 4 :Changed \"Update period\" to: " + value);
         int v;
         try {
             v = Integer.parseInt(value.replaceAll("\\D",""));
         }
         catch (NumberFormatException e){
-            Log.i("Themis", "Event 6 :change \"Update period\" to illegal value: " + value);
+            Log.i("Themis", "Event 6: Changed \"Update period\" to illegal value: " + value);
             Log.i("Themis", "Crash!: NumberFormatException");
 //            return;
             throw e;
