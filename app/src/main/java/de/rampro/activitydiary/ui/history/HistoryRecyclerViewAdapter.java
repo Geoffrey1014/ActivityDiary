@@ -70,14 +70,14 @@ public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryView
     public boolean onDetailItemLongClick(final int adapterPosition) {
         //TODO: generalize the DetailView to include this code also
         //      such that it is not duplicated between MainActivity and HistoryRecyclerViewAdapter
-        Log.i("Themis", "Event 6: long click an image in an activity entry.");
+        Log.i("Themis", "Event 6: Long click an image in an activity entry.");
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext)
                 .setTitle(R.string.dlg_delete_image_title)
                 .setMessage(R.string.dlg_delete_image_text)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        Log.i("Themis", "Event 7:  delete an image in an activity entry");
+                        Log.i("Themis", "Event 7:  Delete an image in an activity entry");
                         ContentValues values = new ContentValues();
                         values.put(ActivityDiaryContract.DiaryImage._DELETED, 1);
 
@@ -93,7 +93,7 @@ public class HistoryRecyclerViewAdapter extends RecyclerView.Adapter<HistoryView
                     }})
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        Log.i("Themis", "Warning 7:  cancel to delete the image in an activity entry");
+                        Log.i("Themis", "Warning 7:  Cancel to delete the image in an activity entry");
                     }
                 });
 

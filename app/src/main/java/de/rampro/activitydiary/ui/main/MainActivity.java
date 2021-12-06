@@ -198,7 +198,7 @@ public class MainActivity extends BaseActivity implements
             @Override
             public void onClick(View v) {
                 // Handle the click on the FAB
-                Log.i("Themis", "Event 2: click the fabAttachPicture ");
+                Log.i("Themis", "Event 2: Click the fabAttachPicture ");
                 if(mCurrentActivity != null) {
                     Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
@@ -417,7 +417,7 @@ public class MainActivity extends BaseActivity implements
 
     @Override
     public void onItemClick(int adapterPosition) {
-        Log.i("Themis", "Event 1: click an item in MainActivity");
+        Log.i("Themis", "Event 1: Click an item in MainActivity");
         DiaryActivity newAct = selectAdapter.item(adapterPosition);
         ActivityHelper.helper.setCurrentActivity(newAct);
 
@@ -582,7 +582,7 @@ public class MainActivity extends BaseActivity implements
             case R.id.action_filter:
             */
         }
-        Log.i("Themis", "Event 4: open the drawer ");
+        Log.i("Themis", "Event 4: Open the drawer ");
 
         return super.onOptionsItemSelected(item);
     }
@@ -659,7 +659,7 @@ public class MainActivity extends BaseActivity implements
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Log.i("Themis", "Event 3 : get a picture");
+            Log.i("Themis", "Event 3 : Get a picture");
             if(mCurrentPhotoPath != null && mCurrentDiaryUri != null) {
                 Uri photoURI = FileProvider.getUriForFile(MainActivity.this,
                         BuildConfig.APPLICATION_ID + ".fileprovider",
