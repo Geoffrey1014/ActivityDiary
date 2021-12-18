@@ -132,8 +132,22 @@ public class SettingsActivity extends BaseActivity implements SharedPreferences.
             updateDisableCurrent();
         }else if(key.equals(KEY_PREF_USE_LOCATION)){
             updateUseLocation();
+            String value = PreferenceManager
+                    .getDefaultSharedPreferences(ActivityDiaryApplication.getAppContext())
+                    .getString(KEY_PREF_USE_LOCATION, "off");
+
+            if(value.equals("off")){
+                Log.i("Themis", "Event 5: Changed \"Location Service\" to \"OFF\"");
+            }else {
+                Log.i("Themis", "Event 3: Changed \"Location Service\" to \"Network\" or \"GPS\"");
+            }
         }else if(key.equals(KEY_PREF_LOCATION_AGE)){
             updateLocationAge();
+            String def = getResources().getString(R.string.pref_location_age_default);
+            String value = PreferenceManager
+                    .getDefaultSharedPreferences(ActivityDiaryApplication.getAppContext())
+                    .getString(KEY_PREF_LOCATION_AGE, def);
+            Log.i("Themis", "Event 4 :Changed \"Update period\" to: " + value);
         }else if(key.equals(KEY_PREF_LOCATION_DIST)){
             updateLocationDist();
         }else if(key.equals(KEY_PREF_PAUSED)){
@@ -172,12 +186,10 @@ public class SettingsActivity extends BaseActivity implements SharedPreferences.
             locationAgePref.setEnabled(false);
             locationDistPref.setEnabled(false);
             useLocationPref.setSummary(getResources().getString(R.string.setting_use_location_off_summary));
-            Log.i("Themis", "Event 5: Changed \"Location Service\" to \"OFF\"");
         }else {
             locationAgePref.setEnabled(true);
             locationDistPref.setEnabled(true);
             useLocationPref.setSummary(getResources().getString(R.string.setting_use_location_summary, useLocationPref.getEntry()));
-            Log.i("Themis", "Event 3: Changed \"Location Service\" to \"Network\" or \"GPS\"");
         }
 
         if(value.equals("gps")) {
@@ -238,7 +250,7 @@ public class SettingsActivity extends BaseActivity implements SharedPreferences.
         String value = PreferenceManager
                 .getDefaultSharedPreferences(ActivityDiaryApplication.getAppContext())
                 .getString(KEY_PREF_LOCATION_AGE, def);
-        Log.i("Themis", "Event 4 :Changed \"Update period\" to: " + value);
+//        Log.i("Themis", "Event 4 :Changed \"Update period\" to: " + value);
         int v;
         try {
             v = Integer.parseInt(value.replaceAll("\\D",""));
